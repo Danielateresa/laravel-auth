@@ -2,7 +2,11 @@
 
 @section('content')
 
-<h1 class="py-3">Projects</h1>
+<div class="top_content d-flex">
+    <h1 class="py-3">Projects</h1>
+    <a class="btn btn-primary ms-auto align-self-center">Add Project</a>
+</div>
+
 <div class="table-responsive">
     <table class="table table-striped
     table-hover	
