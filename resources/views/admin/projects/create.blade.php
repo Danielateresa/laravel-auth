@@ -33,9 +33,8 @@
 
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <input type="text" name="description" id="description"
-            class="form-control @error('description') is-invalid @enderror" placeholder="" aria-describedby="helpId"
-            value="{{ old('description') }}">
+        <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
+            placeholder="" aria-describedby="helpId">{{ old('description') }}</textarea>
     </div>
     @error('description')
     <div class="alert alert-danger">{{$message}}</div>
