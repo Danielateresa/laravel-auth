@@ -8,7 +8,7 @@
 </div>
 
 @include('partials.errors')
-<form action="" method="post">
+<form action="{{route('admin.projects.store')}}" method="post">
     @csrf
 
     <div class="mb-3">

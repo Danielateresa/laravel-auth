@@ -7,6 +7,14 @@
     <a href="{{route('admin.projects.create')}}" class="btn btn-primary ms-auto align-self-center">Add Project</a>
 </div>
 
+@if(session('message'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+    <strong>{{session('message')}}</strong>
+</div>
+@endif
+
 <div class="table-responsive">
     <table class="table table-striped
     table-hover	

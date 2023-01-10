@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -39,7 +40,16 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $validated_data = $request->validated();
+
+        //project slug
+        $project_slug = Str::slug($validated_data['title']);
+        $project_slug = Project::createSlug($validated_data['title']);
+
+        $vallidated_data['slug'] = $project_slug;
+        Project::create($validated_data);
+
+        return to_route('admin.projects.index')->with('message', 'New Project added');
     }
 
     /**
