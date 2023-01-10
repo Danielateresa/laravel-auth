@@ -4,7 +4,7 @@
 
 <div class="top_content d-flex">
     <h1 class="py-3">Projects</h1>
-    <a class="btn btn-primary ms-auto align-self-center">Add Project</a>
+    <a href="{{route('admin.projects.create')}}" class="btn btn-primary ms-auto align-self-center">Add Project</a>
 </div>
 
 <div class="table-responsive">
@@ -30,7 +30,8 @@
                 <td>{{$project->slug}}</td>
                 <!-- <td>{{$project->description}}</td> -->
                 <td>
-                    <a class="btn btn-primary" href=""><i class="fa-solid fa-eye"></i></a>
+                    <a class="btn btn-primary" href="{{route('admin.projects.create')}}"><i
+                            class="fa-solid fa-eye"></i></a>
                     <a class="btn btn-warning" href=""><i class="fa-solid fa-pencil"></i></a>
                     <form class="d-inline" action="" method="post">
                         <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
