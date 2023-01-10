@@ -43,10 +43,9 @@ class ProjectController extends Controller
         $validated_data = $request->validated();
 
         //project slug
-        $project_slug = Str::slug($validated_data['title']);
         $project_slug = Project::createSlug($validated_data['title']);
 
-        $vallidated_data['slug'] = $project_slug;
+        $validated_data['slug'] = $project_slug;
         Project::create($validated_data);
 
         return to_route('admin.projects.index')->with('message', 'New Project added');
