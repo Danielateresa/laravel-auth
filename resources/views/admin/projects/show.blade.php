@@ -7,9 +7,9 @@
 </div>
 
 <h4>Project title: </h4>
-<p>{{$project->description}}</p>
+<p>{{$project->title}}</p>
 <h4>Project slug: </h4>
-<p>{{$project->description}}</p>
+<p>{{$project->slug}}</p>
 <h4>Project description: </h4>
 <p>{{$project->description}}</p>
 
