@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faher\Generator as Faker;
+use Faker\Generator as Faker;
 
 use Illuminate\Support\Str;
 use App\Models\Project;
@@ -19,9 +19,9 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i=0; $i <10 ; $i++) {
-            $project = new project();
+            $project = new Project();
             $project->title = $faker->sentence(3);
-            $project->slug = str::slug($project->$title, '-'); //lo slug viene creato dal title sostituendo gli spazi con -
+            $project->slug = Str::slug($project->title, '-'); //lo slug viene creato dal title sostituendo gli spazi con -
             $project->description = $faker->text();
             $project->save();
         }
