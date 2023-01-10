@@ -38,7 +38,7 @@
                 <td>{{$project->slug}}</td>
                 <!-- <td>{{$project->description}}</td> -->
                 <td>
-                    <a class="btn btn-primary" href="{{route('admin.projects.create')}}"><i
+                    <a class="btn btn-primary" href="{{route('admin.projects.show', $project->slug)}}"><i
                             class="fa-solid fa-eye"></i></a>
                     <a class="btn btn-warning" href=""><i class="fa-solid fa-pencil"></i></a>
                     <form class="d-inline" action="" method="post">
