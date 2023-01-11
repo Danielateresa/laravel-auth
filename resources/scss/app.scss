@@ -4,6 +4,20 @@ body {
     font-size: .875rem;
 }
 
+header {
+    .navbar-nav .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 45px;
+        width: fit-content;
+    }
+
+    .dropdown-menu[data-bs-popper] {
+
+        left: unset;
+    }
+}
+
 .feather {
     width: 16px;
     height: 16px;
