@@ -40,7 +40,8 @@
                 <td>
                     <a class="btn btn-primary" href="{{route('admin.projects.show', $project->slug)}}"><i
                             class="fa-solid fa-eye"></i></a>
-                    <a class="btn btn-warning" href=""><i class="fa-solid fa-pencil"></i></a>
+                    <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->slug)}}"><i
+                            class="fa-solid fa-pencil"></i></a>
                     <form class="d-inline" action="" method="post">
                         <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
                     </form>
