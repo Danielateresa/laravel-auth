@@ -42,7 +42,9 @@
                             class="fa-solid fa-eye"></i></a>
                     <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->slug)}}"><i
                             class="fa-solid fa-pencil"></i></a>
-                    <form class="d-inline" action="" method="post">
+                    <form class="d-inline" action="{{route('admin.projects.destroy', $project->slug)}}" method="post">
+                        @csrf
+                        @method('DELETE')
                         <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
                     </form>
                 </td>
