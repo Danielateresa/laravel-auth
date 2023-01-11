@@ -58,7 +58,8 @@
                     <div class="position-sticky pt-3 sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">
+                                <a class="nav-link {{Route::currentRouteName() === 'admin.dashboard' ? 'active' : ''}}"
+                                    aria-current="page" href="{{route('admin.dashboard')}}">
                                     <span data-feather="home" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-clipboard-list"></i>
                                     Dashboard
