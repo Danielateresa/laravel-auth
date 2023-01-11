@@ -42,11 +42,42 @@
                             class="fa-solid fa-eye"></i></a>
                     <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->slug)}}"><i
                             class="fa-solid fa-pencil"></i></a>
-                    <form class="d-inline" action="{{route('admin.projects.destroy', $project->slug)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
-                    </form>
+                    <!-- Modal trigger button -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#deleteProject-{{$project->id}}">
+                        <i class="fa-solid fa-trash text-white"></i>
+                    </button>
+
+                    <!-- Modal Body -->
+                    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                    <div class="modal fade" id="deleteProject-{{$project->id}}" tabindex="-1" data-bs-backdrop="static"
+                        data-bs-keyboard="false" role="dialog" aria-labelledby="modalProjectId-{{$project->id}}"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalProjectId-{{$project->id}}">Delete Project</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to delete this project permanentely?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+
+                                    <form class="d-inline" action="{{route('admin.projects.destroy', $project->slug)}}"
+                                        method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
             @empty
