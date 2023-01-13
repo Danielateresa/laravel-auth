@@ -32,12 +32,17 @@
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
 
-    <div class="mb-3">
-        <img class="edit_form_img" src="{{asset('storage/' . $project->cover_img)}}" alt="">
-        <label for="cover_img" class="form-label">Edit cover image</label>
-        <input type="file" name="cover_img" id="cover_img" class="form-control @error('cover_img') is-invalid @enderror"
-            placeholder="" aria-describedby="helpId">
-        <small id="helpId" class="text-muted">Edit cover image, must be max 250kb</small>
+    <div class="mb-3 d-flex align-items-end gap-3">
+        <div>
+            <label for="cover_img" class="form-label d-block">Edit cover image</label>
+            <img class="edit_form_img" src="{{asset('storage/' . $project->cover_img)}}" alt="">
+        </div>
+
+        <div>
+            <input type="file" name="cover_img" id="cover_img"
+                class="form-control @error('cover_img') is-invalid @enderror" placeholder="" aria-describedby="helpId">
+            <small id="helpId" class="text-muted">Edit cover image, must be max 250kb</small>
+        </div>
     </div>
     @error('cover_img')
     <div class="alert alert-danger">{{$message}}</div>
