@@ -24,6 +24,7 @@
         <thead class="table-light">
             <tr>
                 <th>id</th>
+                <th>image</th>
                 <th>title</th>
                 <th>slug</th>
                 <!-- <th>description</th> -->
@@ -34,6 +35,7 @@
             @forelse($projects as $project)
             <tr class="table-primary">
                 <td scope="row">{{$project->id}}</td>
+                <td><img src="{{asset('storage/' . $project->cover_img)}}" alt=""></td>
                 <td>{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
                 <!-- <td>{{$project->description}}</td> -->

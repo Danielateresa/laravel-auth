@@ -6,6 +6,8 @@
     <h1 class="py-3">Project {{$project->title}}</h1>
 </div>
 
+
+<img src="{{asset('storage/' . $project->cover_img)}}" alt="">
 <h4>Project title: </h4>
 <p>{{$project->title}}</p>
 <h4>Project slug: </h4>
