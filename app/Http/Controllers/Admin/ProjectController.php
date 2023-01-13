@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -40,7 +41,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        //dd($request->all());
         $validated_data = $request->validated();
+
+        //inserisco il valore img in una variabile
+        $cover_img = Storage::put('uploads', $validated_data['cover_img']);
+
+        //sostituisco il valore di cover_img nei dati validati
+        $validated_data['cover_img'] = $cover_img;
 
         //project slug
         $project_slug = Project::createSlug($validated_data['title']);
