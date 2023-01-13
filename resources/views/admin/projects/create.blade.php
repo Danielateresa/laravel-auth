@@ -33,10 +33,10 @@
 
 
     <div class="mb-3">
-        <label for="cover_img" class="form-label">Add cover imgage</label>
+        <label for="cover_img" class="form-label">Add cover image</label>
         <input type="file" name="cover_img" id="cover_img" class="form-control @error('cover_img') is-invalid @enderror"
-            placeholder="" aria-describedby="helpId" value="{{ old('cover_img') }}">
-        <small id="helpId" class="text-muted">Must be max 255kb</small>
+            placeholder="" aria-describedby="helpId">
+        <small id="helpId" class="text-muted">Must be max 250kb</small>
     </div>
     @error('cover_img')
     <div class="alert alert-danger">{{$message}}</div>

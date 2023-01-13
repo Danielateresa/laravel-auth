@@ -8,15 +8,15 @@
 </div>
 
 @include('partials.errors')
-<form action="{{route('admin.projects.update', $project->slug)}}" method="post">
+<form action="{{route('admin.projects.update', $project->slug)}}" method="post" enctype="multipart/form-data>
     @csrf
     @method('PUT')
 
-    <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
-            placeholder="" aria-describedby="helpId" value="{{ old('title', $project->title) }}">
-        <small id="helpId" class="text-muted">Insert title, max 100 characters, required field</small>
+    <div class=" mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder=""
+        aria-describedby="helpId" value="{{ old('title', $project->title) }}">
+    <small id="helpId" class="text-muted">Insert title, max 100 characters, required field</small>
     </div>
     @error('title')
     <div class="alert alert-danger">{{$message}}</div>
@@ -29,6 +29,17 @@
         <small id="helpId" class="text-muted">Required field</small>
     </div>
     @error('slug')
+    <div class="alert alert-danger">{{$message}}</div>
+    @enderror
+
+    <div class="mb-3">
+        <img class="edit_form_img" src="{{asset('storage/' . $project->cover_img)}}" alt="">
+        <label for="cover_img" class="form-label">Edit cover image</label>
+        <input type="file" name="cover_img" id="cover_img" class="form-control @error('cover_img') is-invalid @enderror"
+            placeholder="" aria-describedby="helpId">
+        <small id="helpId" class="text-muted">Edit cover image, must be max 250kb</small>
+    </div>
+    @error('cover_img')
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
 
