@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
     {
         for ($i=0; $i <10 ; $i++) {
             $project = new Project();
-            $project->cover_img = $faker->image('storage/app/public/placeholders',400, 200, 'project', false, true);// Cannot write to directory "storage/app/public/placeholders" creo la cartella a mano
+            $project->cover_img = 'placeholders/' . $faker->image('storage/app/public/placeholders',400, 200, 'Project', false, false);// Cannot write to directory "storage/app/public/placeholders" creo la cartella a mano
             $project->title = $faker->sentence(3);
             $project->slug = Str::slug($project->title, '-'); //lo slug viene creato dal title sostituendo gli spazi con -
             $project->description = $faker->text();
