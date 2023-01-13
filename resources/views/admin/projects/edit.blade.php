@@ -8,15 +8,15 @@
 </div>
 
 @include('partials.errors')
-<form action="{{route('admin.projects.update', $project->slug)}}" method="post" enctype="multipart/form-data>
+<form action="{{route('admin.projects.update', $project->slug)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
     <div class=" mb-3">
-    <label for="title" class="form-label">Title</label>
-    <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder=""
-        aria-describedby="helpId" value="{{ old('title', $project->title) }}">
-    <small id="helpId" class="text-muted">Insert title, max 100 characters, required field</small>
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
+            placeholder="" aria-describedby="helpId" value="{{ old('title', $project->title) }}">
+        <small id="helpId" class="text-muted">Insert title, max 100 characters, required field</small>
     </div>
     @error('title')
     <div class="alert alert-danger">{{$message}}</div>

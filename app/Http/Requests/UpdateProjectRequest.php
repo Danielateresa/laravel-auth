@@ -24,11 +24,9 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-
+                'cover_img'=>'nullable|image|max:250',
                 'title'=> 'required|min:3',
                 'description'=> 'nullable',
-
-
         ];
     }
 }

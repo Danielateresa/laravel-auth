@@ -44,11 +44,14 @@ class ProjectController extends Controller
         //dd($request->all());
         $validated_data = $request->validated();
 
-        //inserisco il valore img in una variabile
-        $cover_img = Storage::put('uploads', $validated_data['cover_img']);
+        //se viene aggiunta dall'utente, inserisco il valore img in una variabile
+        if($request->hasFile('cover_img')){
+             $cover_img = Storage::put('uploads', $validated_data['cover_img']);
 
         //sostituisco il valore di cover_img nei dati validati
         $validated_data['cover_img'] = $cover_img;
+        }
+       
 
         //project slug
         $project_slug = Project::createSlug($validated_data['title']);
@@ -92,6 +95,17 @@ class ProjectController extends Controller
     {
         $validated_data = $request->validated();
 
+        if($request->hasFile('cover_img')){
+            //se il post ha già un'immagine, la cancello, per poi inserirne un'altra
+            if($project->cover_img){
+                Storage::delete($project->cover_img);
+            }
+            $cover_img = Storage::put('uploads', $validated_data['cover_img']);
+
+       //sostituisco il valore di cover_img nei dati validati
+       $validated_data['cover_img'] = $cover_img;
+       }
+      
         //project slug
         $project_slug = Project::createSlug($validated_data['title']);
 
@@ -109,6 +123,12 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        //se esiste un'immagine, cancellala
+        if($project->cover_img){
+            Storage::delete($project->cover_img);
+        }
+
         $project->delete();
         return to_route('admin.projects.index')->with('message', " Project $project->title deleted");
     }

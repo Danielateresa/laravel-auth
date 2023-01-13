@@ -35,7 +35,7 @@
             @forelse($projects as $project)
             <tr class="table-primary">
                 <td scope="row">{{$project->id}}</td>
-                <td><img src="{{asset('storage/' . $project->cover_img)}}" alt=""></td>
+                <td><img class="edit_form_img" src="{{asset('storage/' . $project->cover_img)}}" alt=""></td>
                 <td>{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
                 <!-- <td>{{$project->description}}</td> -->
