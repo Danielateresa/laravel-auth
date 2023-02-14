@@ -96,7 +96,7 @@ class ProjectController extends Controller
         $validated_data = $request->validated();
 
         if($request->hasFile('cover_img')){
-            //se il post ha già un'immagine, la cancello, per poi inserirne un'altra
+            //se il post ha già un'immagine, la cancello, per poi inserirne un altra
             if($project->cover_img){
                 Storage::delete($project->cover_img);
             }
